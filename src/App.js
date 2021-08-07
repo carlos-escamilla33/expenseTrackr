@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import Expenses from "./components/Expenses.js";
 
 
@@ -32,7 +32,7 @@ function App() {
   return (
     <>
       <h2>Let's get started!</h2>
-      <Expenses expenses={expenses}/>
+      <Expenses items={expenses}/>
     </>
   )
 }
