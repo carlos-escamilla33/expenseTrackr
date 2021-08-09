@@ -9,19 +9,28 @@ to render changes you are making to the specific file you have to import
 the css file into the JS file and after that just link of the classNames with
 the CSS file just like normal HTML + CSS*/
 // WE WANT TO BE ABLE TO REUSE OUR COMPONENTS
+import React, {useState} from "react"
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate.js";
 import Card from "./Card.js"
 
 
 const ExpenseItem = (props) => {
+    const [title, setTitle] = useState(props.title);
+    console.log("ExpenseItem was run");
+
+    const clickHandler = () => {
+        setTitle("Updated");
+    }
+
     return (
         <Card className = "expense-item">
             <ExpenseDate date={props.date}/>
             <div className = "expense-item__description">
-                <h2>{props.title}</h2>
+                <h2>{title}</h2>
                 <div className = "expense-item__price">$ {props.amount}</div>
             </div>
+            <button onClick={clickHandler}>Change Title</button>
         </Card>
     );
 }
